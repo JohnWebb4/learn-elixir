@@ -4,7 +4,6 @@ defmodule LearnElixir.BucketTest do
   setup do
     {:ok, bucket} = LearnElixir.Bucket.start_link([])
     %{bucket: bucket}
-
   end
 
   test "stores values by key", %{bucket: bucket} do
