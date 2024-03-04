@@ -2,7 +2,7 @@ defmodule LearnElixir.BucketTest do
   use ExUnit.Case, async: true
 
   setup do
-    {:ok, bucket} = LearnElixir.Bucket.start_link([])
+    bucket = start_supervised!(LearnElixir.Bucket)
     %{bucket: bucket}
   end
 

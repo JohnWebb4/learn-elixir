@@ -2,16 +2,17 @@ defmodule LearnElixir.RegistryTest do
   use ExUnit.Case, async: true
 
   setup do
-    {:ok, registry} = GenServer.start_link(LearnElixir.Registry, :ok)
+    registry = start_supervised!(LearnElixir.Registry)
     %{registry: registry}
   end
 
-  test "stores values by key", %{registry: registry} do
-    assert GenServer.call(registry, {:lookup, "shopping"}) == :error
+  test "spawn buckets", %{registry: registry} do
+    assert LearnElixir.Registry.lookup(registry, "shopping") == :error
 
-    GenServer.cast(registry, {:create, "shopping"})
+    LearnElixir.Registry.create(registry, "shopping")
+    {:ok, bucket} = LearnElixir.Registry.lookup(registry, "shopping")
 
-    {:ok, bucket} = GenServer.call(registry, {:lookup, "shopping"})
-    assert bucket != nil
+    LearnElixir.Bucket.put(bucket, "milk", 1)
+    assert LearnElixir.Bucket.get(bucket, "milk") == 1
   end
 end
