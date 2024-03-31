@@ -1,6 +1,6 @@
 # LearnElixir
 
-**TODO: Add description**
+Working through [Elixir School](https://elixirschool.com/en/lessons/basics/collections).
 
 ## Installation
 
@@ -19,3 +19,7 @@ Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_do
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at <https://hexdocs.pm/learn_elixir>.
 
+## Lessons
+
+- Lessons
+  - [x] Basics
