@@ -1,8 +1,8 @@
 defmodule LearnElixir.Basics.Collections do
-
   def list() do
     [1, 2, 3]
   end
+
   def prepend(list) do
     [:prepend | list]
   end
@@ -15,24 +15,24 @@ defmodule LearnElixir.Basics.Collections do
     list -- [:remove]
   end
 
-  def filter(list) do
-    result = list = [:keep, :this]
-    result
+  def pattern(list) do
+    [head | rest] = list
+    [head, rest]
   end
 
   def head(list) do
-    hd list
+    hd(list)
   end
 
-  def tail (list) do
-    tl list
+  def tail(list) do
+    tl(list)
   end
 
   def tuple() do
     # Modification slow
     # Access fast
 
-    { 1, 2, 3}
+    {1, 2, 3}
   end
 
   def keyword_list() do
@@ -41,6 +41,6 @@ defmodule LearnElixir.Basics.Collections do
   end
 
   def map() do
-    %{ key: :value}
+    %{key: :value}
   end
 end
