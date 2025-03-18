@@ -10,8 +10,14 @@ defmodule LearnElixir.Basics.ModuleUsing do
   end
 end
 
+defmodule Sayings.Greetings do
+  def basic(name), do: "Hi, #{name}"
+end
+
 defmodule LearnElixir.Basics.Modules do
   use LearnElixir.Basics.ModuleUsing, greeting: "Yo!"
+
+  alias Sayings.Greetings, as: Greetings
 
   @moduledoc """
   This documnets the module
@@ -23,8 +29,9 @@ defmodule LearnElixir.Basics.Modules do
   This documents the hello function
 
   """
+  @spec hello_world(String) :: String
   def hello_world(name) do
-    hello() <> ~s(#{@greeting} #{name}.)
+    Greetings.basic(hello() <> ~s(#{@greeting} #{name}.))
   end
 
   @derive {Inspect, only: [:name]}

@@ -4,7 +4,7 @@ defmodule LearnElixir.Basics.ModulesTest do
   alias LearnElixir.Basics.Modules
 
   test "test modules" do
-    assert Modules.hello_world("Sean") == "Yo! Hello Sean."
+    assert Modules.hello_world("Sean") == "Hi, Yo! Hello Sean."
 
     assert %Modules{} == %Modules{name: "Sean", roles: []}
   end
