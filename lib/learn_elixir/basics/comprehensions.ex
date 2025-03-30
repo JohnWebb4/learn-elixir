@@ -9,6 +9,6 @@ defmodule LearnElixir.Basics.Comprehensions do
   end
 
   def into do
-    for {k, v} <- [one, 1, two: 2, three: 3], into: %{}, do: {k, v}
+    for {k, v} <- [one: 1, two: 2, three: 3], into: %{}, do: {k, v}
   end
 end
